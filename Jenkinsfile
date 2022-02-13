@@ -8,9 +8,21 @@ pipeline {
                 sh 'mvn validate'
             }
         }
-        stage('Build') {
+        stage('UnitTesting') {
             steps {
-                echo 'Building..'
+                echo 'unit testing...'
+                sh 'mvn test'
+                
+            }
+        }
+        stage('Sonar Analysis') {
+            steps {
+                echo 'Sonar analysis....'
+            }
+        }
+        stage('Release') {
+            steps {
+                echo 'Releasing..'
                 
             }
         }
